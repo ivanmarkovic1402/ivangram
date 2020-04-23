@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-lg-3 col-sm-3 p-5">
-            <img class="rounded-circle img-thumbnail" src="https://cdn.rawgit.com/Deftwun/e3756a8b518cbb354425/raw/6584db8babd6cbc4ecb35ed36f0d184a506b979e/free-code-camp-logo.svg" alt="">
+            <img class="rounded-circle img-thumbnail" src="/storage/{{ $user->profile->image }}" alt="">
         </div>
         <div class="col-md-9 col-lg-9 col-sm-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
@@ -13,7 +13,14 @@
                 @can('update', $user->profile)
                     <a href="/p/create">Add New Post</a>
                 @endcan
-                
+
+            {{-- 
+                @guest
+                "only guest see"
+                @else
+                " only auth see"
+                @endguest --}}
+
             </div>
 
             @can('update', $user->profile)
